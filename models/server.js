@@ -10,7 +10,7 @@ class Server {
 		this.usersPath = '/api/user';
 		this.contractsPath = '/api/contract';
 		this.paysPath = '/api/pay';
-		this.productionsPath = '/api/production';
+		this.empaquetadosPath = '/api/empaquetado';
 
 		// middleware
 		this.middlewares();
@@ -42,7 +42,7 @@ class Server {
 		this.app.use(this.usersPath, require('../routes/UserRoute'));
 		this.app.use(this.contractsPath, require('../routes/contractRoute'));
 		this.app.use(this.paysPath, require('../routes/payRoute'));
-		this.app.use(this.productionsPath, require('../routes/productionRoute'));
+		this.app.use(this.empaquetadosPath, require('../routes/EmpaquetadoRoute'));
 	}
 
 	async conectarDb() {

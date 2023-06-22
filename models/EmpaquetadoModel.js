@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 
-const ProductionSchema = Schema({
+const EmpaquetadoSchema = Schema({
     insumo: {
         type: String,
         required: ['true', 'El insumo es obligatorio']
@@ -29,4 +29,4 @@ const ProductionSchema = Schema({
     }
 })
 
-module.exports = model('Production', ProductionSchema);
+module.exports = model('Empaquetado', EmpaquetadoSchema);
