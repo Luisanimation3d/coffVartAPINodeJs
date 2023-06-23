@@ -8,6 +8,9 @@ class Server {
 		this.port = process.env.PORT || 3000;
 
 		this.usersPath = '/api/user';
+		this.contractsPath = '/api/contract';
+		this.paysPath = '/api/pay';
+		this.empaquetadosPath = '/api/empaquetado';
 
 		// middleware
 		this.middlewares();
@@ -37,6 +40,9 @@ class Server {
 
 	routes() {
 		this.app.use(this.usersPath, require('../routes/UserRoute'));
+		this.app.use(this.contractsPath, require('../routes/contractRoute'));
+		this.app.use(this.paysPath, require('../routes/payRoute'));
+		this.app.use(this.empaquetadosPath, require('../routes/EmpaquetadoRoute'));
 	}
 
 	async conectarDb() {
