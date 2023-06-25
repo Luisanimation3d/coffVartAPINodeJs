@@ -38,7 +38,7 @@ class Server {
 
 	routes() {
 		this.app.use(this.usersPath, require('../routes/UserRoute'));
-		this.app.use(this.productsPath, require('../routes/ProductsRoute'));
+		this.app.use(this.productsPath, require('../routes/ProductRoute'));
 	}
 
 	async conectarDb() {
