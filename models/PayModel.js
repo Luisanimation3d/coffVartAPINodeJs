@@ -2,15 +2,17 @@ const {Schema, model} = require('mongoose');
 
 const PaySchema = Schema({
     numeroContrato: {
-        type: String,
+        type: Number,
         //debería tomarlo automaticamente cuando se da en el botón del datagrid del contrato
     },
     montoPagado: {
-        type: String,
-        required: ['true', 'El monto es obligatorio']
+        type: Number,
+        required: ['true', 'El monto es obligatorio'],
+        min: [0,'El valor debe ser mayor a 0']
     },
     fechaPago: {
-        type: String,
+        type: Date,
+        default: Date.now
         //Esta fecha se registra automaticamente dependiendo 
     },
 })

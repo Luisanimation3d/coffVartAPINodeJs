@@ -14,16 +14,24 @@ const EmpaquetadoSchema = Schema({
         //opcines: café 250gr, café 500gr, café 1Kg
     },
     cantidad: {
-        type: String,
-        required: ['true', 'La cantidad es obligatoria']
+        type: Number,
+        required: ['true', 'La cantidad es obligatoria'],
+        min:[1, 'La cantidad debe ser mayor a 0'],
+        validate:{
+            validator:Number.isInteger,
+            message:'la cantidad debe ser un entero'
+        }
     },
     fechaInicio: {
-        type: String,
+        type: Date,
+        default: Date.now
         // se registra automaticamente con la creación
     },
     estado: {
-        type: String,
-        required: ['true', 'El estado es obligatorio']
+        type: Boolean,
+        default:true,
+        required: ['true', 'El estado es obligatorio'],
+        enum:['En proceso','Finalizado']
         //select
         //opciones: En proceso, finalizado
     }

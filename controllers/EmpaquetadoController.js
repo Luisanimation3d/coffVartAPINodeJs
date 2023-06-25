@@ -35,9 +35,62 @@ const postEmpaquetado = async (req, res = response) => {
             error
         });
     }
+}
+const getEmpaquetadoId = async (req, res = response) => {
+    const empaquetadoId = req.params.id
+    try {
+        const empaquetado = await Empaquetado.findById(empaquetadoId);
+        res.status(200).json({
+            ok: true,
+            user
+        });
+    }catch (error) {
+        res.status(500).json({
+            ok: false,
+            msg: 'Empaquetado no encontrado',
+            error
+        })
+    }
+}
+const putEmpaquetado = async (req, res) => {
+    const {_id, ...body} = req.body;
+    try {
+        console.log({...body})
+        await Empaquetado.findOneAndUpdate({_id}, {...body})
+        res.status(200).json({
+            ok: true,
+            msg: 'Empaquetado actualizado exitosamente'
+        })
+    }catch(error){
+        res.status(500).json({
+            ok: false,
+            msg: 'Empaquetado no encontrado',
+            error
+        })
+    }
+}
+
+const deleteEmpaquetado = async (req, res) => {
+    const {id} = req.params;
+    try{
+        await Empaquetado.findOneAndDelete({_id: id})
+        res.status(200).json({
+            ok: true,
+            msg: 'Empaquetado eliminado correctamente'
+        })
+    }catch(error) {
+        res.status(404).json({
+            ok: false,
+            msg: 'Empaquetado no encontrado',
+            error
+        })
+    }
 };
 
 module.exports = {
     getEmpaquetados,
-    postEmpaquetado
+    postEmpaquetado,
+    getEmpaquetadoId,
+    putEmpaquetado,
+    deleteEmpaquetado
 }
