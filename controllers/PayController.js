@@ -35,9 +35,62 @@ const postPay = async (req, res = response) => {
             error
         });
     }
+}
+const getPayId = async (req, res = response) => {
+    const payId = req.params.id
+    try {
+        const pay = await Pay.findById(payId);
+        res.status(200).json({
+            ok: true,
+            user
+        });
+    }catch (error) {
+        res.status(500).json({
+            ok: false,
+            msg: 'Pago no encontrado',
+            error
+        })
+    }
+}
+const putPay = async (req, res) => {
+    const {_id, ...body} = req.body;
+    try {
+        console.log({...body})
+        await Pay.findOneAndUpdate({_id}, {...body})
+        res.status(200).json({
+            ok: true,
+            msg: 'Pago actualizado exitosamente'
+        })
+    }catch(error){
+        res.status(500).json({
+            ok: false,
+            msg: 'Pago no encontrado',
+            error
+        })
+    }
+}
+
+const deletePay = async (req, res) => {
+    const {id} = req.params;
+    try{
+        await Pay.findOneAndDelete({_id: id})
+        res.status(200).json({
+            ok: true,
+            msg: 'Pago eliminado correctamente'
+        })
+    }catch(error) {
+        res.status(404).json({
+            ok: false,
+            msg: 'Pago no encontrado',
+            error
+        })
+    }
 };
 
 module.exports = {
     getPays,
-    postPay
+    postPay,
+    getPayId,
+    putPay,
+    deletePay
 }

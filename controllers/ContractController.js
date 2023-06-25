@@ -35,9 +35,62 @@ const postContract = async (req, res = response) => {
             error
         });
     }
+}
+const getContractId = async (req, res = response) => {
+    const contractId = req.params.id
+    try {
+        const contract = await Contract.findById(contractId);
+        res.status(200).json({
+            ok: true,
+            user
+        });
+    }catch (error) {
+        res.status(500).json({
+            ok: false,
+            msg: 'Contrato no encontrado',
+            error
+        })
+    }
+}
+const putContract = async (req, res) => {
+    const {_id, ...body} = req.body;
+    try {
+        console.log({...body})
+        await Contract.findOneAndUpdate({_id}, {...body})
+        res.status(200).json({
+            ok: true,
+            msg: 'Contrato actualizado exitosamente'
+        })
+    }catch(error){
+        res.status(500).json({
+            ok: false,
+            msg: 'Contrato no encontrado',
+            error
+        })
+    }
+}
+
+const deleteContract = async (req, res) => {
+    const {id} = req.params;
+    try{
+        await Contract.findOneAndDelete({_id: id})
+        res.status(200).json({
+            ok: true,
+            msg: 'Contrato eliminado correctamente'
+        })
+    }catch(error) {
+        res.status(404).json({
+            ok: false,
+            msg: 'Contrato no encontrado',
+            error
+        })
+    }
 };
 
 module.exports = {
     getContracts,
-    postContract
+    postContract,
+    getContractId,
+    putContract,
+    deleteContract
 }
