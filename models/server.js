@@ -11,6 +11,7 @@ class Server {
 		this.contractsPath = '/api/contract';
 		this.paysPath = '/api/pay';
 		this.empaquetadosPath = '/api/empaquetado';
+        this.rolesPath = '/api/roles';
 
 		// middleware
 		this.middlewares();
@@ -43,6 +44,7 @@ class Server {
 		this.app.use(this.contractsPath, require('../routes/contractRoute'));
 		this.app.use(this.paysPath, require('../routes/payRoute'));
 		this.app.use(this.empaquetadosPath, require('../routes/EmpaquetadoRoute'));
+        this.app.use(this.rolesPath, require('../routes/RolesRoute'));
 	}
 
 	async conectarDb() {
