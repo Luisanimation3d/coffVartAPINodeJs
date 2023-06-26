@@ -29,6 +29,7 @@ const postEmpaquetado = async (req, res = response) => {
             msg: 'empaquetado registrado correctamente'
         });
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             ok: false,
             msg: 'Error al registrar empaquetado',

@@ -29,6 +29,7 @@ const postContract = async (req, res = response) => {
             msg: 'Contrato creado correctamente'
         });
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             ok: false,
             msg: 'Error al crear contrato',

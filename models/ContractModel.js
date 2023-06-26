@@ -43,7 +43,7 @@ const ContractSchema = Schema({
     duracion: {
         type: String,
         required: ['true', 'La duración es obligatoria'],
-        enum: ['1 mes']
+        enum: ['1mes']
         //es un select
         //opciones: indefinido, 6 meses, 1 año
     },

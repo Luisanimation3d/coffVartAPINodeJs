@@ -24,14 +24,14 @@ const EmpaquetadoSchema = Schema({
     },
     fechaInicio: {
         type: Date,
-        default: Date.now
+        default: new Date()
         // se registra automaticamente con la creación
     },
     estado: {
         type: Boolean,
         default:true,
         required: ['true', 'El estado es obligatorio'],
-        enum:['En proceso','Finalizado']
+        enum:['EnProceso','Finalizado']
         //select
         //opciones: En proceso, finalizado
     }

@@ -6,7 +6,7 @@ const {getPays, postPay,putPay,deletePay,getPayId} = require("../controllers/Pay
 routes.get("/", getPays);
 routes.post("/", postPay);
 routes.put("/", putPay);
-routes.delete("/", deletePay);
+routes.delete("/:id", deletePay);
 routes.get("/:id", getPayId);
 
 

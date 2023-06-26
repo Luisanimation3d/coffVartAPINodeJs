@@ -42,7 +42,7 @@ const getPayId = async (req, res = response) => {
         const pay = await Pay.findById(payId);
         res.status(200).json({
             ok: true,
-            user
+            pay
         });
     }catch (error) {
         res.status(500).json({

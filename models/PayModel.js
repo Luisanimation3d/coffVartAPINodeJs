@@ -12,7 +12,7 @@ const PaySchema = Schema({
     },
     fechaPago: {
         type: Date,
-        default: Date.now
+        default: new Date
         //Esta fecha se registra automaticamente dependiendo 
     },
 })
