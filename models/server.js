@@ -6,7 +6,7 @@ class Server {
 	constructor() {
 		this.app = express();
 		this.port = process.env.PORT || 3000;
-
+		this.insumosPath = '/api/insumo';
 		this.usersPath = '/api/user';
 		this.productsPath = '/api/product';
 		this.contractsPath = '/api/contract';
@@ -46,7 +46,9 @@ class Server {
 		this.app.use(this.contractsPath, require('../routes/contractRoute'));
 		this.app.use(this.paysPath, require('../routes/payRoute'));
 		this.app.use(this.empaquetadosPath, require('../routes/EmpaquetadoRoute'));
-        this.app.use(this.rolesPath, require('../routes/RolesRoute'));
+        	this.app.use(this.rolesPath, require('../routes/RolesRoute'));
+		this.app.use(this.insumosPath, require('../routes/InsumoRoute'));
+		
 	}
 
 	async conectarDb() {
