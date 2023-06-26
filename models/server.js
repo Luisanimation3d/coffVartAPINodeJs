@@ -45,7 +45,7 @@ class Server {
 		this.app.use(this.usersPath, require('../routes/UserRoute'));
 		this.app.use(this.productsPath, require('../routes/ProductRoute'));
 		this.app.use(this.contractsPath, require('../routes/ContractRoute'));
-		this.app.use(this.paysPath, require('../routes/payRoute'));
+		this.app.use(this.paysPath, require('../routes/PayRoute'));
 		this.app.use(this.empaquetadosPath, require('../routes/EmpaquetadoRoute'));
         	this.app.use(this.rolesPath, require('../routes/RolesRoute'));
 		this.app.use(this.insumosPath, require('../routes/InsumoRoute'));
