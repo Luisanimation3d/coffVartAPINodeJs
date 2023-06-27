@@ -6,7 +6,7 @@ const {getContracts, postContract,putContract,deleteContract,getContractId} = re
 routes.get("/", getContracts);
 routes.post("/", postContract);
 routes.put("/", putContract);
-routes.delete("/:Id", deleteContract);
+routes.delete("/:id", deleteContract);
 routes.get("/:id", getContractId);
 
 
