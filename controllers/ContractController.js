@@ -43,7 +43,7 @@ const getContractId = async (req, res = response) => {
         const contract = await Contract.findById(contractId);
         res.status(200).json({
             ok: true,
-            user
+            contract
         });
     }catch (error) {
         res.status(500).json({
