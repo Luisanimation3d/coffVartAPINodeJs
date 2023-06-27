@@ -6,7 +6,7 @@ const {getEmpaquetados, postEmpaquetado,putEmpaquetado,deleteEmpaquetado,getEmpa
 routes.get("/", getEmpaquetados);
 routes.post("/", postEmpaquetado);
 routes.put("/", putEmpaquetado);
-routes.delete("/", deleteEmpaquetado);
+routes.delete("/:Id", deleteEmpaquetado);
 routes.get("/:Id", getEmpaquetadoId);
 
 module.exports = routes;
