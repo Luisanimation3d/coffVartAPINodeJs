@@ -29,9 +29,9 @@ const EmpaquetadoSchema = Schema({
     },
     estado: {
         type: String,
-        default:true,
+        default:'Activo',
         required: ['true', 'El estado es obligatorio'],
-        //enum:['EnProceso','Finalizado']
+        enum:['EnProceso','Finalizado']
         //select
         //opciones: En proceso, finalizado
     }
