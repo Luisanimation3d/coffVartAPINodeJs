@@ -31,7 +31,7 @@ const EmpaquetadoSchema = Schema({
         type: Boolean,
         default:true,
         required: ['true', 'El estado es obligatorio'],
-        enum:['EnProceso','Finalizado']
+        //enum:['EnProceso','Finalizado']
         //select
         //opciones: En proceso, finalizado
     }

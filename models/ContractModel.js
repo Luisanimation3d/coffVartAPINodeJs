@@ -62,9 +62,9 @@ const ContractSchema = Schema({
     },
     estado: {
         type: Boolean,
-        default:'Activo',
+        default:'true',
         required: ['true', 'El estado es obligatorio'],
-        enum:['Activo','Cancelado']
+        //enum:['Activo','Cancelado']
         //select
         //opciones: Activo, Cancelado
     }
