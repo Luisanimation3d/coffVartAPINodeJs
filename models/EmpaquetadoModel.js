@@ -28,7 +28,7 @@ const EmpaquetadoSchema = Schema({
         // se registra automaticamente con la creación
     },
     estado: {
-        type: Boolean,
+        type: String,
         default:true,
         required: ['true', 'El estado es obligatorio'],
         //enum:['EnProceso','Finalizado']

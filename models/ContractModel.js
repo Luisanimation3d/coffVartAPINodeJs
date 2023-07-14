@@ -61,7 +61,7 @@ const ContractSchema = Schema({
         //La fecha se va a registrar automaticamente con la creación del contrato
     },
     estado: {
-        type: Boolean,
+        type: String,
         //default:'true',
         required: ['true', 'El estado es obligatorio'],
         //enum:['Activo','Cancelado']
